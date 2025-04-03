@@ -1,0 +1,178 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    padding: 15px;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(to right, #3b82f6, #1d4ed8);
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.content {
+    padding: 20px;
+}
+
+.info-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 480px) {
+    .info-bar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.balance {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.balance-value {
+    color: #2563eb;
+}
+
+.status {
+    background-color: #e5e7eb;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.status.running {
+    background-color: #22c55e;
+    color: white;
+}
+
+.timer {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.timer-value {
+    font-weight: bold;
+}
+
+.service-info {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 480px) {
+    .service-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.service-btn {
+    background-color: white;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.2s;
+    height: 70px;
+}
+
+.service-btn:hover:not(:disabled) {
+    border-color: #2563eb;
+}
+
+.service-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.service-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.service-rate {
+    font-size: 14px;
+    color: #2563eb;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+.control-btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.control-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.start-btn {
+    background-color: #22c55e;
+    color: white;
+}
+
+.start-btn:hover:not(:disabled) {
+    background-color: #16a34a;
+}
+
+.pause-btn {
+    background-color: #f59e0b;
+    color: white;
+}
+
+.pause-btn:hover:not(:disabled) {
+    background-color: #d97706;
+}
+
+.icon {
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+}
