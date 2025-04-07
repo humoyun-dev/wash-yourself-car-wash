@@ -56,6 +56,7 @@ export default function App() {
     maxTime > 0
       ? Math.min(100, Math.max(0, (timeRemaining / maxTime) * 100))
       : 0;
+  
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">

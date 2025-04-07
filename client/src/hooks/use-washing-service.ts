@@ -92,6 +92,7 @@ export function useWashingService() {
       });
     }, 1000);
 
+    // @ts-ignore
     setTimerIntervalState(interval);
   }, [selectedService, timerInterval]);
 
