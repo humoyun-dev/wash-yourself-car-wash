@@ -2,15 +2,18 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Play, Loader2 } from "lucide-react";
 
 interface ServiceButtonProps {
   service: {
     name: string;
     rate: number;
     icon?: string;
+    code: string;
   };
   isSelected: boolean;
-  onSelect: (service: { name: string; rate: number }) => void;
+  isRunning?: boolean;
+  onSelect: () => void;
   disabled: boolean;
   icon?: string;
 }
@@ -18,6 +21,7 @@ interface ServiceButtonProps {
 export function ServiceButton({
   service,
   isSelected,
+  isRunning = false,
   onSelect,
   disabled,
   icon,
@@ -30,32 +34,36 @@ export function ServiceButton({
       <Button
         variant={isSelected ? "default" : "outline"}
         className={`w-full h-auto py-3 px-3 flex items-center justify-start gap-2 transition-all duration-200 ${
-          isSelected
-            ? "bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-700 dark:hover:bg-blue-800 shadow-md"
-            : "bg-white hover:bg-gray-50 text-gray-800 border-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 dark:border-gray-700"
+          isSelected ? "shadow-md" : "bg-card text-card-foreground"
         } ${disabled ? "opacity-60" : ""}`}
-        onClick={() => onSelect(service)}
+        onClick={onSelect}
         disabled={disabled}
       >
         <div
           className={`w-7 h-7 rounded-full flex items-center justify-center text-lg ${
-            isSelected
-              ? "bg-blue-500 dark:bg-blue-600"
-              : "bg-blue-100 dark:bg-blue-900"
+            isSelected ? "bg-primary/80" : "bg-accent"
           }`}
         >
           {icon || "✓"}
         </div>
-        <div className="text-left">
+        <div className="text-left flex-1">
           <div className="font-medium text-sm">{service.name}</div>
           <div
             className={`text-xs ${
-              isSelected ? "text-blue-100" : "text-gray-500 dark:text-gray-400"
+              isSelected
+                ? "text-primary-foreground/80"
+                : "text-muted-foreground"
             }`}
           >
             {service.rate.toLocaleString()} UZS/мин
           </div>
         </div>
+        {isSelected && !isRunning && (
+          <Play className="h-4 w-4 ml-1 text-primary-foreground/90" />
+        )}
+        {isRunning && (
+          <Loader2 className="h-4 w-4 ml-1 text-primary-foreground/90 animate-spin" />
+        )}
       </Button>
     </motion.div>
   );
