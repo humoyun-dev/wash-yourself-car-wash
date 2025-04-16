@@ -33,6 +33,8 @@ const createApiClient = (): AxiosInstance => {
   // Get API URL from environment variable or use a default
   const baseURL = import.meta.env.VITE_CONTROLLER_API || "";
 
+  console.log(baseURL);
+
   if (!baseURL && import.meta.env.PROD) {
     console.warn(
       "API URL is not configured. Set VITE_CONTROLLER_API environment variable."
